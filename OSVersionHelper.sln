@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79841F85-51A2-4DDB-8568-58F9B47D987D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		azure-pipelines.yml = azure-pipelines.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSVersionHelper", "OSVersionHelper\OSVersionHelper.csproj", "{BE6D42CC-DDFA-4EAF-81E3-9953B5D08973}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE6D42CC-DDFA-4EAF-81E3-9953B5D08973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6D42CC-DDFA-4EAF-81E3-9953B5D08973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6D42CC-DDFA-4EAF-81E3-9953B5D08973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6D42CC-DDFA-4EAF-81E3-9953B5D08973}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {405CA3B6-59F6-458C-85A6-6E93115888A5}
+	EndGlobalSection
+EndGlobal
