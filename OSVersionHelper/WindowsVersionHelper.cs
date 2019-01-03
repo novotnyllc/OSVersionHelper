@@ -4,10 +4,12 @@
 
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Security;
 using OSVersionHelper.Win32;
 using Windows.Foundation.Metadata;
 using Windows.Security.EnterpriseData;
+using Windows.Storage;
 
 namespace OSVersionHelper
 {
@@ -101,13 +103,19 @@ namespace OSVersionHelper
         public static bool UseWindowsInformationProtectionApi
         {
             [SecurityCritical]
-            get => Windows10Release >= Windows10Release.Anniversary && ProtectionPolicyManager.IsProtectionEnabled;
+            get => Windows10Release >= Windows10Release.Anniversary && ProtectionPolicyManagerEnabled();
         }
 
         public static Windows10Release Windows10Release { get; }
 
+        /// <summary>
+        /// True if the app is running in an AppContainer
+        /// </summary>
+        public static bool IsRunningInAppContainer { get; } = IsWindows10 && HasPackageIdentity();
 
         [SecurityCritical]
+        // Don't load types from here accidently
+        [MethodImpl(MethodImplOptions.NoInlining)]
         private static bool IsApiContractPresent(ushort majorVersion) => ApiInformation.IsApiContractPresent(ContractName, majorVersion);
 
         [SecurityCritical]
@@ -171,5 +179,24 @@ namespace OSVersionHelper
 
             return false;
         }
+
+        // Don't load types from here accidently
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static bool HasPackageIdentity()
+        {
+            try
+            {
+                var container = ApplicationData.Current.LocalSettings;
+                return true;
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
+        // Don't load types from here accidently
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static bool ProtectionPolicyManagerEnabled() => ProtectionPolicyManager.IsProtectionEnabled;
     }
 }
