@@ -5,7 +5,9 @@
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security;
+using System.Text;
 using OSVersionHelper.Win32;
 using Windows.Foundation.Metadata;
 using Windows.Security.EnterpriseData;
@@ -108,10 +110,21 @@ namespace OSVersionHelper
 
         public static Windows10Release Windows10Release { get; }
 
+        private static bool? _hasPackageIdentity;
         /// <summary>
-        /// True if the app is running in an AppContainer
+        /// True if the app has a package identity and can call API's that require one
         /// </summary>
-        public static bool IsRunningInAppContainer { get; } = IsWindows10 && HasPackageIdentity();
+        public static bool HasPackageIdentity
+        {
+            get
+            {
+                if(_hasPackageIdentity == null)
+                {
+                    _hasPackageIdentity = GetPackageFamilyName() != null;
+                }
+                return _hasPackageIdentity.Value;
+            }
+        }
 
         [SecurityCritical]
         // Don't load types from here accidently
@@ -179,24 +192,39 @@ namespace OSVersionHelper
 
             return false;
         }
-
-        // Don't load types from here accidently
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static bool HasPackageIdentity()
-        {
-            try
-            {
-                var container = ApplicationData.Current.LocalSettings;
-                return true;
-            }
-            catch
-            {
-            }
-            return false;
-        }
-
+  
         // Don't load types from here accidently
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static bool ProtectionPolicyManagerEnabled() => ProtectionPolicyManager.IsProtectionEnabled;
+
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern int GetCurrentPackageFullName(ref int packageFullNameLength, StringBuilder packageFullName);
+
+        /// <summary>
+        /// Gets the package family name if the process has an identity
+        /// </summary>
+        /// <returns>The package family name or null if the process isn't running with an identity</returns>
+        public static string GetPackageFamilyName()
+        {
+            if(IsSince(WindowsVersions.Win8))
+            {
+                var length = 0;
+                var sb = new StringBuilder(0);
+                var result = GetCurrentPackageFullName(ref length, sb);
+
+                sb = new StringBuilder(length);
+                result = GetCurrentPackageFullName(ref length, sb);
+                
+                if(result != APPMODEL_ERROR_NO_PACKAGE)
+                {
+                    return sb.ToString();
+                }
+            }
+            return null;
+        }
+
+        const long APPMODEL_ERROR_NO_PACKAGE = 15700L;
+
     }
 }
