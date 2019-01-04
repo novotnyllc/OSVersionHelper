@@ -109,22 +109,11 @@ namespace OSVersionHelper
         }
 
         public static Windows10Release Windows10Release { get; }
-
-        private static bool? _hasPackageIdentity;
+        
         /// <summary>
         /// True if the app has a package identity and can call API's that require one
         /// </summary>
-        public static bool HasPackageIdentity
-        {
-            get
-            {
-                if(_hasPackageIdentity == null)
-                {
-                    _hasPackageIdentity = GetPackageFamilyName() != null;
-                }
-                return _hasPackageIdentity.Value;
-            }
-        }
+        public static bool HasPackageIdentity { get; } = GetPackageFamilyName() != null;
 
         [SecurityCritical]
         // Don't load types from here accidently
