@@ -28,7 +28,7 @@ namespace OSVersionHelper
                 {
                     Windows10Release = Windows10Release.October2018;
                 }
-                if (IsApiContractPresent(6))
+                else if (IsApiContractPresent(6))
                 {
                     Windows10Release = Windows10Release.April2018;
                 }
