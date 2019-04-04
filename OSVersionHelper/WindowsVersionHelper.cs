@@ -24,7 +24,11 @@ namespace OSVersionHelper
         {
             if (IsSince(WindowsVersions.Win10))
             {
-                if (IsApiContractPresent(7))
+                if (IsApiContractPresent(8))
+                {
+                    Windows10Release = Windows10Release.May2019;
+                }
+                else if (IsApiContractPresent(7))
                 {
                     Windows10Release = Windows10Release.October2018;
                 }
@@ -64,6 +68,11 @@ namespace OSVersionHelper
         public static bool EdgeExists { get; } = File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), ExternDll.EdgeHtml));
 
         public static bool IsWindows10 { get; } = IsWindowsNt && IsSince(WindowsVersions.Win10);
+
+        /// <summary>
+        /// Gets a value indicating whether the current OS is Windows 10 May 2019 Update (19H01) or greater
+        /// </summary>
+        public static bool IsWindows10May2019OrGreater => IsWindows10 && Windows10Release >= Windows10Release.May2019;
 
         /// <summary>
         /// Gets a value indicating whether the current OS is Windows 10 October 2018 Update (Redstone 5) or greater

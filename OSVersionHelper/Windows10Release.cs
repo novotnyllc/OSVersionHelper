@@ -47,5 +47,10 @@ namespace OSVersionHelper
         /// 10.0.17763.0 (Redstone 5)
         /// </summary>
         October2018 = 1809,
+
+        /// <summary>
+        /// 10.0.18362.0 (19H01)
+        /// </summary>
+        May2019 = 1903,
     }
 }
