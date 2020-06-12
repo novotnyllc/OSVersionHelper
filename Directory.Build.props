@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <Authors>Oren Novotny</Authors>
+    <Authors>Claire Novotny</Authors>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <PackageProjectUrl>https://github.com/novotnyllc/OSVersionHelper</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
