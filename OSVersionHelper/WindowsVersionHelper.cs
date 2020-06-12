@@ -11,7 +11,6 @@ using System.Text;
 using OSVersionHelper.Win32;
 using Windows.Foundation.Metadata;
 using Windows.Security.EnterpriseData;
-using Windows.Storage;
 
 namespace OSVersionHelper
 {
@@ -214,7 +213,7 @@ namespace OSVersionHelper
         private static bool ProtectionPolicyManagerEnabled() => ProtectionPolicyManager.IsProtectionEnabled;
 
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        [DllImport(ExternDll.Kernel32, CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int GetCurrentPackageFullName(ref int packageFullNameLength, StringBuilder packageFullName);
 
         /// <summary>
