@@ -5,7 +5,7 @@ namespace OSVersionHelper.Tests
 {
     public class WindowsVersionTests
     {
-        [Fact(Skip ="CI")]
+        [Fact(Skip = "CI")]
         public void CurrentVersionReturnsCorrectly()
         {
             var currentVersion = WindowsVersionHelper.Windows10Release;

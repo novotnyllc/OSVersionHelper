@@ -52,5 +52,16 @@ namespace OSVersionHelper
         /// 10.0.18362.0 (19H01)
         /// </summary>
         May2019 = 1903,
+
+        /// <summary>
+        /// 10.0.18363.0 (19H02)
+        /// </summary>
+        November2019 = 1909,
+
+        /// <summary>
+        /// 10.0.19041.0 (20H01)
+        /// </summary>
+        May2020 = 2004
+        
     }
 }
