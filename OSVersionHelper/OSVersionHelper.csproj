@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" PrivateAssets="all" />
     <PackageReference Condition="'$(TargetFramework)' == 'net5.0'" Include="Microsoft.Windows.SDK.NET" Version="10.0.18362.3-preview" />    
-    <PackageReference Condition="'$(TargetFramework)' == 'net5.0'" Include="Microsoft.Windows.CsWinRT" Version="5.0.0-preview.6.20305.6" />    
+    <PackageReference Condition="'$(TargetFramework)' == 'net5.0'" Include="Microsoft.Windows.CsWinRT" Version="0.1.0-prerelease.200623.5" />    
   </ItemGroup>
 
 </Project>
