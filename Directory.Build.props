@@ -13,12 +13,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-  </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>

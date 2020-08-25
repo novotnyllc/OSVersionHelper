@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0-windows10.0.19041</TargetFrameworks>
     <Description>Makes it easy to determine what version of Windows you're running on.</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" PrivateAssets="all" />
-    <PackageReference Condition="'$(TargetFramework)' == 'net5.0'" Include="Microsoft.Windows.SDK.NET" Version="10.0.18362.3-preview" />    
-    <PackageReference Condition="'$(TargetFramework)' == 'net5.0'" Include="Microsoft.Windows.CsWinRT" Version="0.1.0-prerelease.200623.5" />    
+    <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" PrivateAssets="all" />    
   </ItemGroup>
 
 </Project>
