@@ -12,6 +12,11 @@ using OSVersionHelper.Win32;
 using Windows.Foundation.Metadata;
 using Windows.Security.EnterpriseData;
 
+
+#if WINDOWS10_0_19041
+[assembly: SupportedOSPlatform("windows")]
+#endif
+
 namespace OSVersionHelper
 {
     public static class WindowsVersionHelper
