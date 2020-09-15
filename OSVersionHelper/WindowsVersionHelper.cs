@@ -13,7 +13,8 @@ using Windows.Foundation.Metadata;
 using Windows.Security.EnterpriseData;
 
 
-#if WINDOWS10_0_19041
+#if NET5_0
+using System.Runtime.Versioning;
 [assembly: SupportedOSPlatform("windows")]
 #endif
 
