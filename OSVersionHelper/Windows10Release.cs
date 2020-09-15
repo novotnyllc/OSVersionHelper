@@ -61,7 +61,12 @@ namespace OSVersionHelper
         /// <summary>
         /// 10.0.19041.0 (20H01)
         /// </summary>
-        May2020 = 2004
-        
+        May2020 = 2004,
+
+        /// <summary>
+        /// 10.0.19042.0 (20H02)
+        /// </summary>
+        September2020 = 2009
+
     }
 }
