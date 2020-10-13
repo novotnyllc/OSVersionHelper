@@ -66,7 +66,7 @@ namespace OSVersionHelper
         /// <summary>
         /// 10.0.19042.0 (20H02)
         /// </summary>
-        September2020 = 2009
+        October2020 = 2010
 
     }
 }

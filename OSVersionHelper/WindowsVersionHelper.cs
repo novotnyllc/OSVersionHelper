@@ -31,7 +31,7 @@ namespace OSVersionHelper
             {
                 if (IsApiContractPresent(11))
                 {
-                    Windows10Release = Windows10Release.September2020;
+                    Windows10Release = Windows10Release.October2020;
                 } else if (IsApiContractPresent(10))
                 {
                     Windows10Release = Windows10Release.May2020;
@@ -87,9 +87,9 @@ namespace OSVersionHelper
 
 
         /// <summary>
-        /// Gets a value indicating whether the current OS is Windows 10 September 2020 Update (20H02) or greater
+        /// Gets a value indicating whether the current OS is Windows 10 October 2020 Update (20H02) or greater
         /// </summary>
-        public static bool IsWindows10September2020OrGreater => IsWindows10 && Windows10Release >= Windows10Release.September2020;
+        public static bool IsWindows10October2020OrGreater => IsWindows10 && Windows10Release >= Windows10Release.October2020;
 
         /// <summary>
         /// Gets a value indicating whether the current OS is Windows 10 May 2020 Update (20H01) or greater
