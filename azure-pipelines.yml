@@ -22,7 +22,7 @@ stages:
       displayName: 'Use .NET Core SDK 5.0.x'
       inputs:
         version: 5.0.x
-        includePreviewVersions: true
+        includePreviewVersions: false
 
     - task: DotNetCoreCLI@2  
       inputs:
